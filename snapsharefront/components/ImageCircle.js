@@ -1,18 +1,4 @@
-// import React from 'react';
-// import { Image, StyleSheet } from 'react-native';
-
-// export default function ImageCircle({ source }) {
-//   return <Image source={source} style={styles.circle} />;
-// }
-
-// const styles = StyleSheet.create({
-//   circle: {
-//     width: 80,
-//     height: 80,
-//     borderRadius: 40,
-//     marginRight: 10,
-//   },
-// });
+ 
 import React from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 

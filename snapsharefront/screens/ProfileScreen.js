@@ -1,26 +1,4 @@
-// import React from 'react';
-// import { View, Image, Text, StyleSheet } from 'react-native';
-
-// export default function ProfileScreen() {
-//   return (
-//     <View style={styles.container}>
-//       <Image
-//         source={{ uri: 'https://picsum.photos/seed/profile/150' }}
-//         style={styles.profileImage}
-//       />
-//       <Text style={styles.name}>John Doe</Text>
-//       <Text style={styles.info}>Email: john@example.com</Text>
-//       <Text style={styles.info}>Location: Bengaluru, India</Text>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: { flex: 1, alignItems: 'center', paddingTop: 50 },
-//   profileImage: { width: 150, height: 150, borderRadius: 75, marginBottom: 20 },
-//   name: { fontSize: 24, fontWeight: 'bold' },
-//   info: { fontSize: 16, marginTop: 5 },
-// });
+ 
  import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
