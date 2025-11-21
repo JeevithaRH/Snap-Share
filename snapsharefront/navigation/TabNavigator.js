@@ -81,7 +81,7 @@ export default function TabNavigator() {
 
           return <FontAwesome name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: '#007bff',
+        tabBarActiveTintColor: '#080808ff',
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
       })}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -7,15 +7,21 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Image,
+  Animated,
 } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isEnlarged, setIsEnlarged] = useState(false);
 
   const handleLogin = () => {
-    // No validation or backend — just navigate to main app
     navigation.replace('MainTabs');
+  };
+
+  const toggleLogoSize = () => {
+    setIsEnlarged((prev) => !prev);
   };
 
   return (
@@ -23,6 +29,17 @@ export default function LoginScreen({ navigation }) {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
+      {/* Logo Image */}
+      <TouchableOpacity onPress={toggleLogoSize} activeOpacity={0.8}>
+        <Image
+          source={{ uri: ' https://i.pinimg.com/1200x/04/1e/92/041e923cc79b9f92b12e936ec0b23024.jpg' }} // Replace with your logo URL or local image
+          style={[
+            styles.logo,
+            isEnlarged && styles.logoEnlarged,
+          ]}
+        />
+      </TouchableOpacity>
+
       <Text style={styles.title}>Login</Text>
 
       <TextInput
@@ -54,11 +71,25 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#fff' },
+  container: { flex: 1, justifyContent: 'center', padding: 20, backgroundColor: '#cffcd7ff' },
+  logo: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    alignSelf: 'center',
+    marginBottom: 20,
+    borderWidth: 3,
+    borderColor: '#e40fcfff',
+  },
+  logoEnlarged: {
+    width: 200,
+    height: 200,
+    borderRadius: 30,
+  },
   title: { fontSize: 28, fontWeight: 'bold', marginBottom: 30, textAlign: 'center' },
   input: {
     height: 50,
-    borderColor: '#ccc',
+    borderColor:  '#e40fcfff',
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 15,
@@ -73,5 +104,13 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   loginText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
-  forgotText: { color: '#007bff', textAlign: 'center', marginTop: 10 },
+  forgotText: { color: '#007bff', textAlign: 'center', marginTop: 10 ,textDecorationLine: 'underline'},
 });
+
+
+
+
+
+
+
+

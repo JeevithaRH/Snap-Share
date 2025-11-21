@@ -44,7 +44,7 @@ export default function UploadScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' ,backgroundColor:  '#cffcd7ff',},
   button: {
     backgroundColor: '#007bff',
     paddingVertical: 15,

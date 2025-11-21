@@ -165,7 +165,7 @@ export default function HomeScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 10, backgroundColor: '#f2f2f2' },
+  container: { flex: 1, padding: 10, backgroundColor: '#cffcd7ff' },
   horizontalScroll: { marginVertical: 10 },
   verticalList: { marginTop: 10 },
   card: {
