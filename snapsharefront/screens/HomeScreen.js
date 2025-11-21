@@ -53,36 +53,96 @@ const verticalImages = [
   { id: 5, caption: 'Mountain Hike' },
 ];
 
-export default function HomeScreen() {
+// export default function HomeScreen() {
+//   return (
+//     <ScrollView style={styles.container}>
+//       {/* Horizontal Circle Images */}
+//       {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
+//         {circleImages.map((item, index) => (
+//           <ImageCircle key={index} source={{ uri: `https://picsum.photos/seed/${item}/100` }} />
+//         ))}
+//       </ScrollView> */}
+//       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
+//   {circleImages.map((item) => (
+//     <ImageCircle
+//       key={item.id}
+//       source={{ uri: `https://picsum.photos/seed/${item.id}/100` }}
+//       title={item.title}
+//     />
+//   ))}
+// </ScrollView>
+//       {/* Vertical Image Cards */}
+//       <View style={styles.verticalList}>
+//         {verticalImages.map((item) => (
+//           <View key={item.id} style={styles.card}>
+//             <Image
+//               source={{ uri: `https://picsum.photos/seed/v${item.id}/400/250` }}
+//               style={styles.verticalImage}
+//             />
+//             <Text style={styles.caption}>{item.caption}</Text>
+//             <View style={styles.iconRow}>
+//               <TouchableOpacity>
+//                 { <Ionicons name="heart-outline" size={24} color="#ef0b0bff" /> }
+//               </TouchableOpacity>
+//               <TouchableOpacity>
+//                 <Feather name="message-circle" size={24} color="#2806e9ff" />
+//               </TouchableOpacity>
+//               <TouchableOpacity>
+//                 <Feather name="share" size={24} color="#333" />
+//               </TouchableOpacity>
+//               <TouchableOpacity>
+//                 <FontAwesome name="bookmark-o" size={24} color="#333" />
+//               </TouchableOpacity>
+//               <TouchableOpacity style={{ marginLeft: 'auto' }}>
+//                 <FontAwesome name="ellipsis-h" size={24} color="#333" />
+//               </TouchableOpacity>
+//             </View>
+//           </View>
+//         ))}
+//       </View>
+//     </ScrollView>
+//   );
+// }
+export default function HomeScreen({ navigation }) {
   return (
     <ScrollView style={styles.container}>
-      {/* Horizontal Circle Images */}
-      {/* <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
-        {circleImages.map((item, index) => (
-          <ImageCircle key={index} source={{ uri: `https://picsum.photos/seed/${item}/100` }} />
-        ))}
-      </ScrollView> */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.horizontalScroll}>
-  {circleImages.map((item) => (
-    <ImageCircle
-      key={item.id}
-      source={{ uri: `https://picsum.photos/seed/${item.id}/100` }}
-      title={item.title}
-    />
-  ))}
-</ScrollView>
-      {/* Vertical Image Cards */}
+        {circleImages.map((item) => (
+          <TouchableOpacity
+            key={item.id}
+            onPress={() =>
+              navigation.navigate('FullScreenImage', {
+                imageUri: `https://picsum.photos/seed/${item.id}/100`,
+              })
+            }
+          >
+            <ImageCircle
+              source={{ uri: `https://picsum.photos/seed/${item.id}/100` }}
+              title={item.title}
+            />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+
       <View style={styles.verticalList}>
         {verticalImages.map((item) => (
           <View key={item.id} style={styles.card}>
-            <Image
-              source={{ uri: `https://picsum.photos/seed/v${item.id}/400/250` }}
-              style={styles.verticalImage}
-            />
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('FullScreenImage', {
+                  imageUri: `https://picsum.photos/seed/v${item.id}/400/250`,
+                })
+              }
+            >
+              <Image
+                source={{ uri: `https://picsum.photos/seed/v${item.id}/400/250` }}
+                style={styles.verticalImage}
+              />
+            </TouchableOpacity>
             <Text style={styles.caption}>{item.caption}</Text>
             <View style={styles.iconRow}>
               <TouchableOpacity>
-                { <Ionicons name="heart-outline" size={24} color="#ef0b0bff" /> }
+                <Ionicons name="heart-outline" size={24} color="#ef0b0bff" />
               </TouchableOpacity>
               <TouchableOpacity>
                 <Feather name="message-circle" size={24} color="#2806e9ff" />
